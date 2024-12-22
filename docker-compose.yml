@@ -1,0 +1,16 @@
+services:
+
+  whatsupdocker:
+    image: getwud/wud:latest
+    container_name: wud
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./store:/store
+    ports:
+      - "3000:3000"
+    environment:
+      - TZ=Europe/Madrid
+      - WUD_AUTH_BASIC_JOHN_USER=genbyte #Usuario
+      - WUD_AUTH_BASIC_JOHN_HASH=p4ssw0rd #Contraseña
+      
